@@ -10,11 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@stacks/auth": "^7.1.0",
     "@stacks/connect": "^8.1.9",
     "@stacks/network": "^7.0.2",
+    "@stacks/storage": "^7.1.0",
     "@stacks/transactions": "^7.1.0",
+    "@tailwindcss/postcss": "^4.1.11",
+    "postcss": "^8.5.6",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
