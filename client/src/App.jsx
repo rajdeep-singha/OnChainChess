@@ -5,8 +5,7 @@ import Chessboard from "./components/ChessBoard"; // Your custom chessboard comp
 
 export default function App() {
   const [address, setAddress] = useState(null);
-  // const [walletConnected, setWalletConnected] = useState(false);
-  // const [playWithBot, setPlayWithBot] = useState(false);
+  const [playWithBot, setPlayWithBot] = useState(false);
 
   const handleConnect = () => {
     showConnect({
@@ -30,7 +29,17 @@ export default function App() {
       ) : (
         <>
           <p className="mb-4 text-green-400">Connected as: {address}</p>
-          <Chessboard /> {/* Visible only after wallet connection */}
+
+          {!playWithBot ? (
+            <button
+              className="bg-purple-500 px-4 py-2 rounded hover:bg-purple-600 transition"
+              onClick={() => setPlayWithBot(true)}
+            >
+              Play with Bot
+            </button>
+          ) : (
+            <Chessboard />
+          )}
         </>
       )}
     </div>

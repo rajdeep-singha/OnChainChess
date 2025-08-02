@@ -4,9 +4,9 @@ description = ""
 authors = []
 telemetry = true
 cache_dir = "./.cache"
-
-# [contracts.chess]
-# path = "contracts/chess.clar"
+requirements = []
+[contracts.chess]
+path = "contracts/chess.clar"
 
 [repl.analysis]
 passes = ["check_checker"]

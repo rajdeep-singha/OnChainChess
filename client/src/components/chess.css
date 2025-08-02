@@ -1,0 +1,6 @@
+/* src/components/chess.css */
+.chessboard {
+    width: 100%;
+    max-width: 512px;
+  }
+  
