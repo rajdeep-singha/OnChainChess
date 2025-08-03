@@ -70,14 +70,14 @@
 (define-read-only (initial-board)
   (ok
     (list 
-      u10 u8 u9 u11 u12 u9 u8 u10 ; Black back rank
-      u7 u7 u7 u7 u7 u7 u7 u7     ; Black pawns
-      u0 u0 u0 u0 u0 u0 u0 u0     ; Empty rows
+      u10 u8 u9 u11 u12 u9 u8 u10 ;; Black back rank
+      u7 u7 u7 u7 u7 u7 u7 u7     ;; Black pawns
+      u0 u0 u0 u0 u0 u0 u0 u0     ;; Empty rows
       u0 u0 u0 u0 u0 u0 u0 u0
       u0 u0 u0 u0 u0 u0 u0 u0
       u0 u0 u0 u0 u0 u0 u0 u0
-      u1 u1 u1 u1 u1 u1 u1 u1     ; White pawns
-      u4 u2 u3 u5 u6 u3 u2 u4     ; White back rank
+        u1 u1 u1 u1 u1 u1 u1 u1     ;; White pawns
+      u4 u2 u3 u5 u6 u3 u2 u4     ;; White back rank
     )
   )
 )
@@ -123,7 +123,7 @@
 
 
 
-;; make-move Function (Player’s Move)
+;; make-move Function (Players Move)
 (define-public (make-move (game-id uint) (from uint) (to uint))
   (let (
       (sender tx-sender)
@@ -133,7 +133,7 @@
       (let (
           (status (get status game))
           (is-white-turn (get turn game))
-          (player1 (get player1 game)) ; white
+          (player1 (get player1 game)) ;; white
           (player2-opt (get player2 game))
         )
         (if (is-eq status "active")
@@ -165,7 +165,7 @@
                                 (player1 player1)
                                 (player2 player2)
                                 (board new-board)
-                                (turn (not is-white-turn)) ; switch turn
+                                (turn (not is-white-turn)) ;; switch turn
                                 (status "active")
                                 (move-history new-history)
                                 (last-move-time block-height)
@@ -173,22 +173,22 @@
                             )
                             (ok true)
                           )
-                          (err u109) ; error updating board
+                          (err u109) ;; error updating board
                         )
                       )
-                      (err u110) ; Invalid piece move (wrong color)
+                      (err u110) ;; Invalid piece move (wrong color)
                     )
                   )
-                  (err u111) ; No piece at source position
+                  (err u111) ;; No piece at source position
                 )
               )
-              (err u112) ; Not your turn
+              (err u112) ;; Not your turn
             )
           )
-          (err u113) ; Game not active
+          (err u113) ;; Game not active
         )
       )
-      (err u114) ; Game not found
+      (err u114) ;; Game not found
     )
   )
 )
@@ -197,7 +197,7 @@
 
 
 ;;bot-move Function 
-(define-constant BOT-ADDRESS 'STB...ST33ZPTYR4ZRQCPSV22ND1AD5H2MHTYBK8ACY76A9...) ;; your bot address here
+(define-constant BOT-ADDRESS 'ST33ZPTYR4ZRQCPSV22ND1AD5H2MHTYBK8ACY76A9) ;; your bot address here
 
 (define-public (bot-move (game-id uint) (from uint) (to uint))
   (let (
@@ -208,7 +208,7 @@
       (begin
         (if (is-eq (get status g) "active")
           (if (is-eq sender BOT-ADDRESS)
-            (if (not (get turn g)) ; bot's turn
+            (if (not (get turn g)) ;; bot's turn
               (let (
                   (board (get board g))
                   (piece (element-at? from board))
@@ -407,4 +407,4 @@
       (err u602)
     )
   )
-)
+  )
